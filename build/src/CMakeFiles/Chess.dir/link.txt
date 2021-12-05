@@ -1,0 +1,1 @@
+/usr/bin/cc    CMakeFiles/Chess.dir/main.c.o  -o ../Chess 
