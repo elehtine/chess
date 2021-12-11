@@ -1,17 +1,7 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-
-typedef struct
-{
-    int col;
-    int row;
-    int type;
-    int is_white;
-    char *symbol;
-} piece;
-
-enum type
+typedef enum
 {
     pawn,
     rook,
@@ -19,15 +9,14 @@ enum type
     bishop,
     queen,
     king
-};
+} type;
 
-//--board characters--
-char WHITE[] = "░";
-char BLACK[] = "█";
-char KING_W[] = "♔";
-char KING_B[] = "♚";
-char QUEEN_W[] = "♕";
-char QUEEN_B[] = "♛";
-//--------------------
+typedef struct
+{
+    int col;
+    int row;
+    type type;
+    int is_white;
+} piece;
 
 #endif
