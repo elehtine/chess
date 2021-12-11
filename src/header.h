@@ -1,3 +1,6 @@
+#ifndef HEADER_H
+#define HEADER_H
+
 
 typedef struct
 {
@@ -26,3 +29,5 @@ char KING_B[] = "♚";
 char QUEEN_W[] = "♕";
 char QUEEN_B[] = "♛";
 //--------------------
+
+#endif
