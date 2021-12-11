@@ -1,4 +1,8 @@
 #include "header.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 
 piece *test_coordinates(piece *pieces, int x, int y)
 {
@@ -14,8 +18,10 @@ void draw_board(piece *pieces)
     piece *found_piece;
     int x;
     int y;
+//    printf("  abcdefgh\n");
     for (y = 0; y < 8; y++)
     {
+//        printf("%d ", y + 1);
         for (x = 0; x < 8; x++)
         {
             found_piece = test_coordinates(pieces, x ,y);
@@ -25,7 +31,7 @@ void draw_board(piece *pieces)
             }
             else
             {
-                if ((x % 2 == 0 && y % 2 == 0) || (x % 2 != 0 && y % 2 != 0))
+                if ((x + y) % 2 == 0)
                 {
                     printf("%s", WHITE);
                 }
@@ -39,6 +45,35 @@ void draw_board(piece *pieces)
     }
 }
 
+int move_king(piece king, int x, int y)
+{
+    if (y == king.row && x == king.col)
+    {
+        return (0);
+    }
+    if (abs(x - king.col) <= 1 && abs(y - king.row) <= 1)
+    {
+        return (1);
+    }
+    return (0);
+}
+
+int move_validation(piece *test_piece, int x, int y)
+{
+    if (!test_piece)
+    {
+        return (0);
+    }
+    else if (!strcmp(test_piece->symbol, KING_W))
+    {
+        if (move_king(*test_piece, x, y))
+        {
+            return (1);
+        }
+    }
+    return (0);
+}
+
 void game_loop(piece *pieces)
 {
     int x;
@@ -50,10 +85,18 @@ void game_loop(piece *pieces)
     draw_board(pieces);
 
     scanf("%d %d %d %d", &x, &y, &x_new, &y_new);
-    while (x_new < 8 && y_new < 8)
+    while (x_new < 8 && y_new < 8 && x_new >= 0 && y_new >= 0)
     {
-        pieces[0].col = x_new;
-        pieces[0].row = y_new;
+        found_piece = test_coordinates(pieces, x, y);
+        if (move_validation(found_piece, x_new, y_new))
+        {
+            found_piece->col = x_new;
+            found_piece->row = y_new;
+        }
+        else
+        {
+            printf("Try again.\n");
+        }
         draw_board(pieces);
         scanf("%d %d %d %d", &x, &y, &x_new, &y_new);
     }
