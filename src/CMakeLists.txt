@@ -1,1 +1,1 @@
-add_executable(Chess main.c)
+add_executable(Chess main.c header.h)
