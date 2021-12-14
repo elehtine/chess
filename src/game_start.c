@@ -1,36 +1,46 @@
 #include "header.h"
 #include <stdio.h>
 
-void badly_named_and_formatted_function(piece *everything)
+piece make_piece(type t_type, int col, int row, int white)
+{
+    piece temp_piece;
+
+    temp_piece.type = t_type;
+    temp_piece.col = col;
+    temp_piece.row = row;
+    temp_piece.is_white = white;
+    return (temp_piece);
+}
+
+void starting_positions(piece *everything)
 {
     int i;
     piece temp_piece;
     for (i = 0; i < 16; i += 2)
     {
-        temp_piece.type = t_pawn;
-        temp_piece.row = 1;
-        temp_piece.col = i / 2;
-        temp_piece.is_white = 0;
- //       printf("%d, i, %d, %d, %d, %d\n", i, temp_piece.col, temp_piece.row, temp_piece.type, temp_piece.is_white);
-        everything[i] = temp_piece;
-        temp_piece.row = 6;
-        temp_piece.col = i / 2;
-        temp_piece.is_white = 1;
-        everything[i + 1] = temp_piece;
-//        printf("%d, i, %d, %d, %d, %d\n", i, temp_piece.col, temp_piece.row, temp_piece.type, temp_piece.is_white);
-    }
-        temp_piece.type = t_king;
-        temp_piece.col = 4;
-        temp_piece.row = 7;
-        temp_piece.is_white = 1;
-        everything[i] = temp_piece;
-}
+        everything[i] = make_piece(t_pawn, i / 2, 1, 0);
+        everything[i + 1] = make_piece(t_pawn, i / 2, 6, 1);
+    }    
+    everything[i++] = make_piece(t_rook, 0, 0, 0);
+    everything[i++] = make_piece(t_rook, 0, 7, 1);
+    everything[i++] = make_piece(t_rook, 7, 0, 0);
+    everything[i++] = make_piece(t_rook, 7, 7, 1);
 
-void make_king(piece *king)
-{
-    king->col = 4;
-    king->row = 7;
-    king->type = t_king;
+    everything[i++] = make_piece(t_knight, 1, 0, 0);
+    everything[i++] = make_piece(t_knight, 1, 7, 1);
+    everything[i++] = make_piece(t_knight, 6, 0, 0);
+    everything[i++] = make_piece(t_knight, 6, 7, 1);
+
+    everything[i++] = make_piece(t_bishop, 2, 0, 0);
+    everything[i++] = make_piece(t_bishop, 2, 7, 1);
+    everything[i++] = make_piece(t_bishop, 5, 0, 0);
+    everything[i++] = make_piece(t_bishop, 5, 7, 1);
+
+    everything[i++] = make_piece(t_queen, 4, 0, 0);
+    everything[i++] = make_piece(t_queen, 3, 7, 1);
+
+    everything[i++] = make_piece(t_king, 3, 0, 0);
+    everything[i++] = make_piece(t_king, 4, 7, 1);
 }
 
 void start_game(piece *pieces)
