@@ -1,6 +1,9 @@
 # Chess
 
 ## Execute
+------------------
+for now builds from shell "script" in src
+------------------
 First time:
 ```
 mkdir build && cd build
