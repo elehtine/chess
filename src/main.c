@@ -5,6 +5,11 @@
 int main(void)
 {
     piece pieces[32];
+    if (&pieces[0] == NULL) {
+        printf("null");
+    } else {
+        printf("not null");
+    }
     starting_positions(&pieces[0]);
     start_game(pieces);
     return (0);

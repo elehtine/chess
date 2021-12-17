@@ -2,6 +2,9 @@
 #define HEADER_H
 
 
+#define RANK_NB
+#define FILE_NB
+
 #define PIECE_COUNT 32
 //--board characters--
 static char WHITE[] = "░";

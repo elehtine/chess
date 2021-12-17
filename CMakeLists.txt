@@ -6,6 +6,7 @@ project(Chess)
 set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
 add_subdirectory(src)
 
 include(FetchContent)
@@ -22,15 +23,16 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  hello_test
+  chess_test
   tests/game_test.cc
-  tests/hello_test.cc
 )
 target_link_libraries(
-  hello_test
+  chess_test
   gtest_main
+  Game
+  Ui
 )
 
 include(GoogleTest)
-gtest_discover_tests(hello_test)
+gtest_discover_tests(chess_test)
 

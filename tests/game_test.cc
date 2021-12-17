@@ -1,23 +1,47 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-  // Include real game library
-  typedef struct
-  {
-    int x;
-    int y;
-    int type;
-    int is_white;
-  } piece;
-
-  int can_move(piece p, piece *board) {
-    return 1;
-  }
+  #include "header.h"
 }
 
 TEST(GameTest, KingMoves) {
-  piece board[32];
-  board[0] = { 7, 4, 5, 1 };
-  EXPECT_TRUE(can_move(board[0], board));
-  EXPECT_FALSE(can_move(board[0], board));
+  piece king = make_piece(t_king, 3, 4, 1);
+  int can_move[8][8] =
+  {
+    { 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 0, 0, 1, 1, 1, 0, 0, 0 },
+    { 0, 0, 1, 0, 1, 0, 0, 0 },
+    { 0, 0, 1, 1, 1, 0, 0, 0 },
+    { 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 0, 0, 0, 0 }
+  };
+
+  for (int x = 0; x < 8; x++) {
+    for (int y = 0; y < 8; y++) {
+      EXPECT_TRUE(move_validation(&king, x, y) == can_move[y][x]);
+    }
+  }
+}
+
+TEST(GameTest, QueenMoves) {
+  piece queen = make_piece(t_queen, 3, 4, 1);
+  int can_move[8][8] =
+  {
+    { 0, 0, 0, 1, 0, 0, 0, 1 },
+    { 1, 0, 0, 1, 0, 0, 1, 0 },
+    { 0, 1, 0, 1, 0, 1, 0, 0 },
+    { 0, 0, 1, 1, 1, 0, 0, 0 },
+    { 1, 1, 1, 0, 1, 1, 1, 1 },
+    { 0, 0, 1, 1, 1, 0, 0, 0 },
+    { 0, 1, 0, 1, 0, 1, 0, 0 },
+    { 1, 0, 0, 1, 0, 0, 1, 0 }
+  };
+
+  for (int x = 0; x < 8; x++) {
+    for (int y = 0; y < 8; y++) {
+      EXPECT_TRUE(move_validation(&queen, x, y) == can_move[y][x]);
+    }
+  }
 }
