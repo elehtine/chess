@@ -20,7 +20,7 @@ int move_pawn(piece pawn, int x, int y)
     return (0);
 }
 
-int move_king(piece *pieces, piece king, int x, int y)
+int move_king(piece *pieces[], piece king, int x, int y)
 {
     int i;
 
@@ -30,7 +30,7 @@ int move_king(piece *pieces, piece king, int x, int y)
     }
     for (i = 0; i < PIECE_COUNT; i++)
     {
-        if (pieces[i].x == x && pieces[i].y == y)
+        if (pieces[i]->x == x && pieces[i]->y == y)
         {
             return (0);
         }
@@ -51,7 +51,7 @@ int move_queen(piece queen, int x, int y)
     return (0);
 }
 
-int move_validation(piece *pieces, piece *test_piece, int x, int y)
+int move_validation(piece *pieces[], piece *test_piece, int x, int y)
 {
     if (!test_piece || (y == test_piece->y && x == test_piece->x))
     {

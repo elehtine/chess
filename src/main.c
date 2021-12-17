@@ -11,5 +11,6 @@ int main(void)
         printf("x %d y %d type %d white %d\n", pieces[i]->x, pieces[i]->y, pieces[i]->type, pieces[i]->is_white);
     }
     start_game(pieces);
+    free_pieces(pieces);
     return (0);
 }
