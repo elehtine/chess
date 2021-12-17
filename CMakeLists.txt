@@ -24,7 +24,8 @@ enable_testing()
 
 add_executable(
   chess_test
-  tests/game_test.cc
+  tests/king_test.cc
+  tests/queen_test.cc
 )
 target_link_libraries(
   chess_test
