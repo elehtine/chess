@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    piece *pieces[32];
+    piece *pieces[PIECE_COUNT];
     starting_positions(pieces);
     start_game(pieces);
     free_pieces(pieces);
