@@ -69,15 +69,15 @@ int move_validation(piece *pieces, piece *test_piece, int x, int y)
     return (0);
 }
 
-piece *test_coordinates(piece *pieces, int x, int y)
+piece *test_coordinates(piece *pieces[], int x, int y)
 {
     int i;
 
     for (i = 0; i < PIECE_COUNT; i++)
     {
-        if (pieces[i].x == x && pieces[i].y == y)
+        if (pieces[i]->x == x && pieces[i]->y == y)
         {
-            return (&pieces[i]);
+            return (pieces[i]);
         }
     }
     return (NULL);
