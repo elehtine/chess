@@ -43,8 +43,8 @@ typedef struct
 } piece;
 
 //--moving.c
-int move_king(piece king, int x, int y);
-int move_validation(piece *test_piece, int x, int y);
+int move_king(piece *pieces, piece king, int x, int y);
+int move_validation(piece *pieces, piece *test_piece, int x, int y);
 piece *test_coordinates(piece *pieces, int x, int y);
 
 //--drawing.c

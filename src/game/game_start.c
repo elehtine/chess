@@ -57,7 +57,7 @@ void start_game(piece *pieces)
     while (to_x < 8 && to_y < 8 && to_x >= 0 && to_y >= 0) // Game loop
     {
         found_piece = test_coordinates(pieces, from_x, from_y);
-        if (move_validation(found_piece, to_x, to_y))
+        if (move_validation(pieces, found_piece, to_x, to_y))
         {
             found_piece->x = to_x;
             found_piece->y = to_y;
