@@ -1,6 +1,7 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+
 #define PIECE_COUNT 32
 //--board characters--
 static char WHITE[] = "░";
@@ -18,6 +19,7 @@ static char QUEEN_B[] = "♛";
 static char KING_W[] = "♔";
 static char KING_B[] = "♚";
 //--------------------
+
 
 typedef enum types
 {

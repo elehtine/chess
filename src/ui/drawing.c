@@ -1,4 +1,5 @@
 #include "header.h"
+
 #include <stdio.h>
 
 void draw_piece(piece found_piece)
