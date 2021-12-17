@@ -1,1 +1,0 @@
-gcc main.c drawing.c game_start.c moving.c -o chess.exe
