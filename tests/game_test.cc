@@ -4,8 +4,8 @@ extern "C" {
   // Include real game library
   typedef struct
   {
-    int col;
-    int row;
+    int x;
+    int y;
     int type;
     int is_white;
   } piece;

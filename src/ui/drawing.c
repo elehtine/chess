@@ -110,7 +110,7 @@ piece *test_coordinates(piece *pieces, int x, int y)
 
     for (i = 0; i < PIECE_COUNT; i++)
     {
-        if (pieces[i].col == x && pieces[i].row == y)
+        if (pieces[i].x == x && pieces[i].y == y)
         {
             return (&pieces[i]);
         }
