@@ -49,7 +49,7 @@ void starting_positions(piece *everything[32])
     everything[i++] = make_piece(t_king, 4, 7, 1);
 }
 
-void start_game(piece *pieces)
+void start_game(piece *pieces[32])
 {
     int from_x;
     int from_y;
