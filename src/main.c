@@ -7,5 +7,6 @@ int main(void)
     piece *pieces[32];
     starting_positions(pieces);
     start_game(pieces);
+    free_pieces(pieces);
     return (0);
 }

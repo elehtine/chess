@@ -5,8 +5,8 @@ extern "C" {
 }
 
 TEST(QueenTest, OnlyQueen) {
-  piece *board[32];
-  for (int i = 0; i < 32; ++i)
+  piece *board[PIECE_COUNT];
+  for (int i = 1; i < PIECE_COUNT; ++i)
   {
     board[i] = make_piece(t_king, -1, -1, 1);
   }
@@ -29,5 +29,6 @@ TEST(QueenTest, OnlyQueen) {
       EXPECT_TRUE(move_validation(board, board[0], x, y) == can_move[y][x]);
     }
   }
+  free_pieces(board);
 }
 

@@ -23,7 +23,6 @@ static char KING_W[] = "♔";
 static char KING_B[] = "♚";
 //--------------------
 
-
 typedef enum types
 {
     t_pawn,
@@ -43,15 +42,19 @@ typedef struct
 } piece;
 
 //--moving.c
-int move_validation(piece *pieces[32], piece *test_piece, int x, int y);
-piece *test_coordinates(piece *pieces[32], int x, int y);
+int move_validation(piece *pieces[], piece *test_piece, int x, int y);
+piece *test_coordinates(piece *pieces[], int x, int y);
 
 //--drawing.c
-void draw_board(piece *pieces[32]);
+void draw_board(piece *pieces[]);
 
 //--game_start.c
 piece *make_piece(type t_type, int x, int y, int white);
-void starting_positions(piece *everything[32]);
-void start_game(piece *pieces[32]);
+void starting_positions(piece *everything[]);
+void start_game(piece *pieces[]);
+
+//--memory.c
+void free_pieces(piece *pieces[]);
+piece *make_piece(type t_type, int x, int y, int white);
 
 #endif

@@ -1,24 +1,7 @@
 #include "header.h"
 #include <stdio.h>
-#include <stdlib.h>
 
-piece *make_piece(type t_type, int x, int y, int white)
-{
-    piece *temp_piece;
-
-    temp_piece = malloc(sizeof(piece));
-    if (!temp_piece)
-    {
-        return (0);
-    }
-    temp_piece->type = t_type;
-    temp_piece->x = x;
-    temp_piece->y = y;
-    temp_piece->is_white = white;
-    return (temp_piece);
-}
-
-void starting_positions(piece *everything[32])
+void starting_positions(piece *everything[])
 {
     int i;
     piece temp_piece;
@@ -49,7 +32,7 @@ void starting_positions(piece *everything[32])
     everything[i++] = make_piece(t_king, 4, 7, 1);
 }
 
-void start_game(piece *pieces[32])
+void start_game(piece *pieces[])
 {
     int from_x;
     int from_y;

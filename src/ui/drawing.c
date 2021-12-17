@@ -72,7 +72,7 @@ void draw_piece(piece found_piece)
     }
 }
 
-void draw_board(piece *pieces[32])
+void draw_board(piece *pieces[])
 {
     piece *found_piece;
     int x;
