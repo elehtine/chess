@@ -12,6 +12,6 @@ int main(void)
 /*
     for (int i = 0; i < PIECE_COUNT; i++)
     {
-        printf("col %d row %d type %d white %d\n", pieces[i].col, pieces[i].row, pieces[i].type, pieces[i].is_white);
+        printf("x %d y %d type %d white %d\n", pieces[i].x, pieces[i].y, pieces[i].type, pieces[i].is_white);
     }
 */

@@ -1,13 +1,13 @@
 #include "header.h"
 #include <stdio.h>
 
-piece make_piece(type t_type, int col, int row, int white)
+piece make_piece(type t_type, int x, int y, int white)
 {
     piece temp_piece;
 
     temp_piece.type = t_type;
-    temp_piece.col = col;
-    temp_piece.row = row;
+    temp_piece.x = x;
+    temp_piece.y = y;
     temp_piece.is_white = white;
     return (temp_piece);
 }
@@ -59,8 +59,8 @@ void start_game(piece *pieces)
         found_piece = test_coordinates(pieces, from_x, from_y);
         if (move_validation(found_piece, to_x, to_y))
         {
-            found_piece->col = to_x;
-            found_piece->row = to_y;
+            found_piece->x = to_x;
+            found_piece->y = to_y;
         }
         else
         {

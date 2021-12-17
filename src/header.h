@@ -31,8 +31,8 @@ typedef enum types
 
 typedef struct
 {
-    int col;
-    int row;
+    int x;
+    int y;
     type type;
     int is_white;
 } piece;
@@ -46,7 +46,7 @@ piece *test_coordinates(piece *pieces, int x, int y);
 void draw_board(piece *pieces);
 
 //--game_start.c
-piece make_piece(type t_type, int col, int row, int white);
+piece make_piece(type t_type, int x, int y, int white);
 void starting_positions(piece *everything);
 void make_king(piece *king);
 void start_game(piece *pieces);
