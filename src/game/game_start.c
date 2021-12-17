@@ -12,7 +12,7 @@ piece make_piece(type t_type, int x, int y, int white)
     return (temp_piece);
 }
 
-void starting_positions(piece *everything)
+void starting_positions(piece everything[32])
 {
     int i;
     piece temp_piece;
